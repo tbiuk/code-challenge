@@ -23,7 +23,7 @@
 .login-form input {
   width: 100%;
   padding: 8px 10px;
-  margin-bottom: 15px;
+  margin-top: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
@@ -47,4 +47,31 @@
 
 .login-form button:hover {
   background-color: #444;
+}
+
+.login-form button:disabled {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+}
+
+.error:not(.visible) {
+  display: none;
+}
+
+.email-error-box {
+  height: 1.5em;
+}
+
+.password-error-box {
+  height: 2.5em;
+}
+
+.login-form button:disabled {
+  background-color: #ccc;
+  cursor: default;
 }
