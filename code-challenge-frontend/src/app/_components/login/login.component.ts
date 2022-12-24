@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/_services/auth/auth.service';
 import { HttpService } from 'src/app/_services/http/http.service';
 
 @Component({
@@ -15,8 +14,7 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private httpService: HttpService,
-    private router: Router,
-    private authService: AuthService
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -36,13 +34,12 @@ export class LoginComponent {
       const email = this.form.controls['email'].value.toLowerCase();
       const password = this.form.controls['password'].value;
 
-      const token = await this.httpService.sendLoginRequest({
+      const isLoginSuccess = await this.httpService.sendLoginRequest({
         email,
         password,
       });
 
-      if (token) {
-        this.authService.authToken = token;
+      if (isLoginSuccess) {
         this.router.navigate(['/encoder']);
       }
     }
