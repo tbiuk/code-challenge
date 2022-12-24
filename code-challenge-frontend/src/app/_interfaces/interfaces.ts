@@ -6,3 +6,6 @@ export interface LoginData {
 export interface LoginRequestResponse {
   token: string;
 }
+export interface EncoderRequestResponse {
+  result: string;
+}
