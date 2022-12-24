@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
@@ -7,6 +8,7 @@ const encoder = require("./encoder/encoder");
 const authorization = require("./middleware/authorization");
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/login", login);
 
