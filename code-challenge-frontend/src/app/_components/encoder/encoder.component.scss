@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+#send-button {
+  margin-left: 10px;
+}
+
+#result-label {
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}

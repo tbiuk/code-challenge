@@ -1,1 +1,10 @@
-<p>encoder works!</p>
+<div class="form-container">
+  <div class="form">
+    <div class="row">
+      <input autofocus placeholder="Input" [(ngModel)]="input" />
+      <button id="send-button" (click)="getResult(input)">Send</button>
+    </div>
+    <label id="result-label">Result</label>
+    <textarea readonly rows="5" [class.error]="isError">{{ result }}</textarea>
+  </div>
+</div>

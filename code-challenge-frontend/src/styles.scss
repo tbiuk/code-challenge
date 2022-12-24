@@ -56,3 +56,20 @@ button {
 button:hover {
   background-color: #444;
 }
+
+textarea {
+  resize: none;
+  width: 100%;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #333;
+}
+
+textarea:read-only:hover {
+  cursor: pointer;
+}
