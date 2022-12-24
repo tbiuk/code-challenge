@@ -1,0 +1,13 @@
+<div class="login-form-container">
+  <div class="login-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input placeholder="Email" type="email" formControlName="email" />
+      <input
+        placeholder="Password"
+        type="password"
+        formControlName="password"
+      />
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+</div>
