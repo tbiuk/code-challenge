@@ -4,12 +4,13 @@ const port = 3000;
 
 const login = require("./login");
 const encoder = require("./encoder/encoder");
+const authorization = require("./middleware/authorization");
 
 app.use(express.json());
 
 app.post("/login", login);
 
-app.get("/encoder", (req, res) => {
+app.get("/encoder", authorization, (req, res) => {
   try {
     const { str } = req.query;
     const result = encoder(str);
