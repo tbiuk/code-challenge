@@ -9,3 +9,50 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  min-height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+button {
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+button:hover {
+  background-color: #444;
+}

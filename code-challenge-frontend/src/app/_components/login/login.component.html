@@ -1,64 +1,58 @@
-<div class="login-form-container">
-  <div class="login-form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <input placeholder="Email" type="email" formControlName="email" />
-      <div class="email-error-box">
-        <div
-          [class.visible]="
-            form.get('email')?.hasError('required') &&
-            (form.get('email')?.dirty || form.get('email')?.touched)
-          "
-          class="error"
-        >
-          *Email is required
-        </div>
-        <div
-          [class.visible]="
-            form.get('email')?.hasError('email') &&
-            (form.get('email')?.dirty || form.get('email')?.touched)
-          "
-          class="error"
-        >
-          *Email is invalid
-        </div>
+<div class="form-container">
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input placeholder="Email" type="email" formControlName="email" />
+    <div class="email-validation-error-box">
+      <div
+        [class.visible]="
+          form.get('email')?.hasError('required') &&
+          (form.get('email')?.dirty || form.get('email')?.touched)
+        "
+        class="validation-error"
+      >
+        *Email is required
       </div>
-
-      <input
-        placeholder="Password"
-        type="password"
-        formControlName="password"
-      />
-      <div class="password-error-box">
-        <div
-          [class.visible]="
-            form.get('password')?.hasError('required') &&
-            (form.get('password')?.dirty || form.get('password')?.touched)
-          "
-          class="error"
-        >
-          *Password is required
-        </div>
-        <div
-          [class.visible]="
-            form.get('password')?.hasError('minlength') &&
-            (form.get('password')?.dirty || form.get('password')?.touched)
-          "
-          class="error"
-        >
-          *Password must be at least 6 characters long
-        </div>
-        <div
-          [class.visible]="
-            form.get('password')?.hasError('pattern') &&
-            (form.get('password')?.dirty || form.get('password')?.touched)
-          "
-          class="error"
-        >
-          *Password must contain at least 1 number
-        </div>
+      <div
+        [class.visible]="
+          form.get('email')?.hasError('email') &&
+          (form.get('email')?.dirty || form.get('email')?.touched)
+        "
+        class="validation-error"
+      >
+        *Email is invalid
       </div>
+    </div>
 
-      <button type="submit" [disabled]="form.invalid">Log in</button>
-    </form>
-  </div>
+    <input placeholder="Password" type="password" formControlName="password" />
+    <div class="password-validation-error-box">
+      <div
+        [class.visible]="
+          form.get('password')?.hasError('required') &&
+          (form.get('password')?.dirty || form.get('password')?.touched)
+        "
+        class="validation-error"
+      >
+        *Password is required
+      </div>
+      <div
+        [class.visible]="
+          form.get('password')?.hasError('minlength') &&
+          (form.get('password')?.dirty || form.get('password')?.touched)
+        "
+        class="validation-error"
+      >
+        *Password must be at least 6 characters long
+      </div>
+      <div
+        [class.visible]="
+          form.get('password')?.hasError('pattern') &&
+          (form.get('password')?.dirty || form.get('password')?.touched)
+        "
+        class="validation-error"
+      >
+        *Password must contain at least 1 number
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Log in</button>
+  </form>
 </div>
