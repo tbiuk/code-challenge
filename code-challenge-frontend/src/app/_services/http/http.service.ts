@@ -13,18 +13,18 @@ import {
   LoginRequestResponse,
 } from 'src/app/_interfaces/interfaces';
 import { AuthService } from '../auth/auth.service';
+import { API_URL } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
   constructor(private http: HttpClient, private authService: AuthService) {}
-  private API_URL = 'http://localhost:3000';
 
   async sendLoginRequest(data: LoginData) {
     try {
       const { token } = await lastValueFrom(
-        this.http.post<LoginRequestResponse>(this.API_URL + '/login', data)
+        this.http.post<LoginRequestResponse>(API_URL + '/login', data)
       );
       this.authService.authToken = token;
       return true;
@@ -44,7 +44,7 @@ export class HttpService {
       const params = new HttpParams().set('str', str);
 
       const { result } = await lastValueFrom(
-        this.http.get<EncoderRequestResponse>(this.API_URL + '/encoder', {
+        this.http.get<EncoderRequestResponse>(API_URL + '/encoder', {
           headers,
           params,
         })
