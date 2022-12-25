@@ -29,6 +29,11 @@ export class LoginComponent {
     });
   }
 
+  autofillForm() {
+    this.form.controls['email'].setValue('optimus.prime@autobots.com');
+    this.form.controls['password'].setValue('validPassword1234!');
+  }
+
   async onSubmit() {
     if (this.form.valid) {
       const email = this.form.controls['email'].value.toLowerCase();

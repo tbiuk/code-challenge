@@ -14,3 +14,14 @@
 .password-validation-error-box {
   height: 2.5em;
 }
+
+.autofill {
+  font-size: 0.8em;
+  margin: 5px auto 0 auto;
+  color: #1877f2;
+}
+
+.autofill:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
