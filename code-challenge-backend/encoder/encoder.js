@@ -20,21 +20,21 @@ module.exports = function encoder(str) {
   for (let i = 1; i < str.length; i++) {
     if (str[i] === currentChar) {
       count++;
+
+      if (count > MAX_COUNT) {
+        result = result.concat(currentChar + MAX_COUNT);
+        count -= MAX_COUNT;
+      }
+
+      continue;
     }
 
-    if (count > MAX_COUNT) {
-      result += currentChar + MAX_COUNT;
-      count = count - MAX_COUNT;
-    }
-
-    if (str[i] !== currentChar) {
-      result += currentChar + count;
-      currentChar = str[i];
-      count = 1;
-    }
+    result = result.concat(currentChar + count);
+    currentChar = str[i];
+    count = 1;
   }
 
-  result += currentChar + count;
+  result = result.concat(currentChar + count);
 
   return result;
 };
