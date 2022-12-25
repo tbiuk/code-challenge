@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: #f0f2f5;
 }
 
 .form {
@@ -26,6 +27,7 @@ body {
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 input {
@@ -55,6 +57,11 @@ button {
 
 button:hover {
   background-color: #444;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: default;
 }
 
 textarea {
