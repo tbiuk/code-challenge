@@ -10,6 +10,7 @@ import { HttpService } from 'src/app/_services/http/http.service';
 })
 export class LoginComponent {
   form: FormGroup;
+  loginErrorVisible: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,6 +47,8 @@ export class LoginComponent {
 
       if (isLoginSuccess) {
         this.router.navigate(['/encoder']);
+      } else {
+        this.loginErrorVisible = true;
       }
     }
   }

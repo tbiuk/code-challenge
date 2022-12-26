@@ -55,5 +55,6 @@
     </div>
 
     <button type="submit" [disabled]="form.invalid">Log in</button>
+    <div id="loginError" [class.visible]="loginErrorVisible">Login failed.</div>
   </form>
 </div>

@@ -29,7 +29,6 @@ export class HttpService {
       this.authService.authToken = token;
       return true;
     } catch (error: any) {
-      alert(error.error);
       return false;
     }
   }

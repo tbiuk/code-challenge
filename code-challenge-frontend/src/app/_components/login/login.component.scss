@@ -25,3 +25,13 @@
   text-decoration-line: underline;
   cursor: pointer;
 }
+
+#loginError {
+  margin: 5px auto 0 auto;
+  color: red;
+  font-size: 0.8em;
+}
+
+#loginError:not(.visible) {
+  visibility: hidden;
+}
