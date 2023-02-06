@@ -13,7 +13,7 @@ import {
   LoginRequestResponse,
 } from 'src/app/_interfaces/interfaces';
 import { AuthService } from '../auth/auth.service';
-import { API_URL } from 'src/app/config';
+import { environment } from './../../_environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,10 @@ export class HttpService {
   async sendLoginRequest(data: LoginData) {
     try {
       const { token } = await lastValueFrom(
-        this.http.post<LoginRequestResponse>(API_URL + '/login', data)
+        this.http.post<LoginRequestResponse>(
+          environment.API_URL + '/login',
+          data
+        )
       );
       this.authService.authToken = token;
       return true;
@@ -43,10 +46,13 @@ export class HttpService {
       const params = new HttpParams().set('str', str);
 
       const { result } = await lastValueFrom(
-        this.http.get<EncoderRequestResponse>(API_URL + '/encoder', {
-          headers,
-          params,
-        })
+        this.http.get<EncoderRequestResponse>(
+          environment.API_URL + '/encoder',
+          {
+            headers,
+            params,
+          }
+        )
       );
       return { result, isError: false };
     } catch (error: any) {
